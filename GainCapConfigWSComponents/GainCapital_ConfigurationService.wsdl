@@ -1,0 +1,1788 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.GainCapital.com.WebServices"
+	xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="www.GainCapital.com.WebServices">
+	<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		Provides configuration parameters for various features to be made available to
+		the application
+	</wsdl:documentation>
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified"
+			targetNamespace="www.GainCapital.com.WebServices">
+			<s:element name="GetAccountTradeSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAccountTradeSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetAccountTradeSettingsResult" type="tns:Settings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="Settings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="AccountSettings"
+						type="tns:AccountSettings" />
+					<s:element minOccurs="0" maxOccurs="1" name="ProductSettings"
+						type="tns:ArrayOfProductSetting" />
+					<s:element minOccurs="0" maxOccurs="1" name="UserTimeZones"
+						type="tns:UserTimeZone" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="AccountSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="BasePair"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Features"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BlowoutLevel"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsNFARegulated"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsDealAtMarket"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsAgency"
+						type="s:boolean" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfProductSetting">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="ProductSetting"
+						nillable="true" type="tns:ProductSetting" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ProductSetting">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MarginFactor"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Notation"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CounterProduct"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ContractProduct"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TradeSize"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OrderSize"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DefaultTradeLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DefaultOrderLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxTradeLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxOrderLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CancelOrderPips"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxOrderPips"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="PipDifference"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Active"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Order" type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Subscribed"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="QuickPair"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxPosition"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DecimalPlaces"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AliasName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Description"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BoldIndex"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="SuperScriptIndex"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ContractExpiryDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="DailyClosureExpiryTimeDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UnitsPerLotDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="MinimumTickDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OrderPipsAway"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Type"
+						type="tns:udProductType" />
+					<s:element minOccurs="1" maxOccurs="1" name="ProductGroup"
+						type="tns:udProductType" />
+					<s:element minOccurs="0" maxOccurs="1" name="MinimumTolerance"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Tolerance"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsOnWatchList"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsPopularMarket"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="PopularMarketOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="WatchlistSortOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DealBoxSortOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MinimumTickValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="UnderlyingExchange"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ContactValueDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TickValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ProductDisplayTree"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TradingHours"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ExpirationDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UnderlyingExchangeMonth" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ExpirationDateTime"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="udProductType">
+				<s:restriction base="s:string">
+					<s:enumeration value="CURRENCY" />
+					<s:enumeration value="CFD" />
+					<s:enumeration value="METALS" />
+					<s:enumeration value="OIL" />
+					<s:enumeration value="OTHERS" />
+				</s:restriction>
+			</s:simpleType>
+			<s:complexType name="UserTimeZone">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="UserTimeZoneID"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TimeZoneName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TimeZoneStandardName"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1"
+						name="IsSupportDayLightSaving" type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="DayLightName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="EasternToCustomerTimeZoneOffsetInMinutes" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="CustomerToGMTTimeZoneOffsetInMinutes" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="Authenticator" type="tns:Authenticator" />
+			<s:complexType name="Authenticator">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ApplicationName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="IPAddress"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MachineName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Language"
+						type="s:string" />
+				</s:sequence>
+				<s:anyAttribute />
+			</s:complexType>
+			<s:element name="GetProductSetting">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="Product"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetProductSettingResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetProductSettingResult" type="tns:BlotterOfProductSetting" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfProductSetting">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfProductSetting" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetTimeZones">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="1" maxOccurs="1" name="language"
+							type="tns:Languages" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:simpleType name="Languages">
+				<s:restriction base="s:string">
+					<s:enumeration value="English" />
+					<s:enumeration value="ChineseTraditional" />
+					<s:enumeration value="ChineseSimplified" />
+					<s:enumeration value="Russian" />
+					<s:enumeration value="Japanese" />
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="GetTimeZonesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetTimeZonesResult"
+							type="tns:BlotterOfTimeZones" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfTimeZones">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfTimeZones" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfTimeZones">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="TimeZones"
+						nillable="true" type="tns:TimeZones" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TimeZones">
+				<s:complexContent mixed="false">
+					<s:extension base="tns:UserTimeZone">
+						<s:sequence>
+							<s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+							<s:element minOccurs="0" maxOccurs="1" name="TimeZoneID"
+								type="s:string" />
+						</s:sequence>
+					</s:extension>
+				</s:complexContent>
+			</s:complexType>
+			<s:element name="GetConfigurationSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetConfigurationSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetConfigurationSettingsResult" type="tns:ConfigurationSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ConfigurationSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="PlatformImage"
+						type="s:base64Binary" />
+					<s:element minOccurs="0" maxOccurs="1" name="ColorStyle"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="ChartColorSet"
+						type="s:int" />
+					<s:element minOccurs="0" maxOccurs="1" name="RatesConnection"
+						type="tns:ArrayOfConnection" />
+					<s:element minOccurs="0" maxOccurs="1" name="Services"
+						type="tns:ArrayOfService" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="message"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfConnection">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Connection"
+						nillable="true" type="tns:Connection" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Connection">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Port" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfService">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Service"
+						nillable="true" type="tns:Service" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Service">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="RefreshInterval"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Enabled"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Visible"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1"
+							name="userSettingsCollection" type="tns:BlotterOfUserSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfUserSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfUserSettings" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfUserSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="UserSettings"
+						nillable="true" type="tns:UserSettings" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="UserSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="DefaultTradeLots"
+						type="s:int" />
+					<s:element minOccurs="1" maxOccurs="1" name="DefaultOrderLots"
+						type="s:int" />
+					<s:element minOccurs="1" maxOccurs="1" name="Order" type="s:int" />
+					<s:element minOccurs="1" maxOccurs="1" name="Active"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="OrderPipsAway"
+						type="s:int" />
+					<s:element minOccurs="1" maxOccurs="1" name="Tolerance"
+						type="s:int" />
+					<s:element minOccurs="1" maxOccurs="1" name="DealBoxSortOrder"
+						type="s:int" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserSettingsResult" type="tns:BlotterOfUserSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserSetting">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1"
+							name="userSettingsCollection" type="tns:CollectionOfUserSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="CollectionOfUserSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Input"
+						type="tns:ArrayOfUserSettings" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserSettingResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserSettingResult" type="tns:BlotterOfUserSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserProductSubscriptionSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1"
+							name="userSettingsProductSubscriptionCollection" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfString">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfString" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfString">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="string"
+						nillable="true" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserProductSubscriptionSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserProductSubscriptionSettingsResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserProductSubscriptionSetting">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1"
+							name="userSettingsProductSubscriptionCollection" type="tns:CollectionOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="CollectionOfString">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Input"
+						type="tns:ArrayOfString" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserProductSubscriptionSettingResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserProductSubscriptionSettingResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserQuickPairSetting">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1"
+							name="userSettingsQuickPairsCollection" type="tns:CollectionOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserQuickPairSettingResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserQuickPairSettingResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserTradeSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="tradeSetting"
+							type="tns:TradeSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="TradeSettings">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="MarketOrder"
+						type="s:boolean" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SaveUserTradeSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserTradeSettingsResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserTimeZoneSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="1" maxOccurs="1" name="TimeZoneID"
+							type="s:long" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SaveUserTimeZoneSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SaveUserTimeZoneSettingsResult" type="tns:BlotterOfUserTimeZone" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfUserTimeZone">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfUserTimeZone" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfUserTimeZone">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="UserTimeZone"
+						nillable="true" type="tns:UserTimeZone" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetAnonymousProductSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="1" maxOccurs="1" name="lang"
+							type="tns:Languages" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetAnonymousProductSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetAnonymousProductSettingsResult" type="tns:BlotterOfProductSetting" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSubAccounts">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetSubAccountsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetSubAccountsResult" type="tns:BlotterOfSubAccount" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfSubAccount">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfSubAccount" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfSubAccount">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="SubAccount"
+						nillable="true" type="tns:SubAccount" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="SubAccount">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="CustomerName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AccountNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GetPlatformSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetPlatformSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="GetPlatformSettingsResult" type="tns:BlotterOfPlatformSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="BlotterOfPlatformSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfPlatformSettings" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfPlatformSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="PlatformSettings"
+						nillable="true" type="tns:PlatformSettings" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="PlatformSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="PlatformSettings"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="PlatformPreferences"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ChartPreferences"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="SavePlatformSettings">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="platformSetting"
+							type="tns:PlatformSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SavePlatformSettingsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="SavePlatformSettingsResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="UpdateUserWatchList">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="Token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="watchList"
+							type="tns:ArrayOfWatchListSettings" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ArrayOfWatchListSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="WatchListSettings"
+						nillable="true" type="tns:WatchListSettings" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="WatchListSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsOnWatchList"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="SortOrder"
+						type="s:int" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="UpdateUserWatchListResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="UpdateUserWatchListResult" type="tns:BlotterOfString" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="Settings" nillable="true" type="tns:Settings" />
+			<s:element name="BlotterOfProductSetting" nillable="true"
+				type="tns:BlotterOfProductSetting" />
+			<s:element name="BlotterOfTimeZones" nillable="true"
+				type="tns:BlotterOfTimeZones" />
+			<s:element name="ConfigurationSettings" nillable="true"
+				type="tns:ConfigurationSettings" />
+			<s:element name="BlotterOfUserTimeZone" nillable="true"
+				type="tns:BlotterOfUserTimeZone" />
+			<s:element name="BlotterOfSubAccount" nillable="true"
+				type="tns:BlotterOfSubAccount" />
+			<s:element name="BlotterOfPlatformSettings" nillable="true"
+				type="tns:BlotterOfPlatformSettings" />
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="GetAccountTradeSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetAccountTradeSettings" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetAccountTradeSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingSoapIn">
+		<wsdl:part name="parameters" element="tns:GetProductSetting" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingSoapOut">
+		<wsdl:part name="parameters" element="tns:GetProductSettingResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesSoapIn">
+		<wsdl:part name="parameters" element="tns:GetTimeZones" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesSoapOut">
+		<wsdl:part name="parameters" element="tns:GetTimeZonesResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetConfigurationSettings" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetConfigurationSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:SaveUserSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserSetting" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingSoapOut">
+		<wsdl:part name="parameters" element="tns:SaveUserSettingResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserSettingAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserProductSubscriptionSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingsSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:SaveUserProductSubscriptionSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserProductSubscriptionSetting" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:SaveUserProductSubscriptionSettingResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserProductSubscriptionSettingAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserQuickPairSettingSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserQuickPairSetting" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserQuickPairSettingSoapOut">
+		<wsdl:part name="parameters" element="tns:SaveUserQuickPairSettingResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserQuickPairSettingAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTradeSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserTradeSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTradeSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:SaveUserTradeSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTradeSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:SaveUserTimeZoneSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:SaveUserTimeZoneSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetAnonymousProductSettings" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetAnonymousProductSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetSubAccounts" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetSubAccountsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:GetPlatformSettings" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:GetPlatformSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SavePlatformSettingsSoapIn">
+		<wsdl:part name="parameters" element="tns:SavePlatformSettings" />
+	</wsdl:message>
+	<wsdl:message name="SavePlatformSettingsSoapOut">
+		<wsdl:part name="parameters" element="tns:SavePlatformSettingsResponse" />
+	</wsdl:message>
+	<wsdl:message name="SavePlatformSettingsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="UpdateUserWatchListSoapIn">
+		<wsdl:part name="parameters" element="tns:UpdateUserWatchList" />
+	</wsdl:message>
+	<wsdl:message name="UpdateUserWatchListSoapOut">
+		<wsdl:part name="parameters" element="tns:UpdateUserWatchListResponse" />
+	</wsdl:message>
+	<wsdl:message name="UpdateUserWatchListAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsHttpGetOut">
+		<wsdl:part name="Body" element="tns:Settings" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="Product" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfProductSetting" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="language" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfTimeZones" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsHttpGetOut">
+		<wsdl:part name="Body" element="tns:ConfigurationSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="TimeZoneID" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfUserTimeZone" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="lang" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfProductSetting" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfSubAccount" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsHttpGetIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsHttpGetOut">
+		<wsdl:part name="Body" element="tns:BlotterOfPlatformSettings" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetAccountTradeSettingsHttpPostOut">
+		<wsdl:part name="Body" element="tns:Settings" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="Product" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetProductSettingHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfProductSetting" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="language" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetTimeZonesHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfTimeZones" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetConfigurationSettingsHttpPostOut">
+		<wsdl:part name="Body" element="tns:ConfigurationSettings" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="TimeZoneID" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="SaveUserTimeZoneSettingsHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfUserTimeZone" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+		<wsdl:part name="lang" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetAnonymousProductSettingsHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfProductSetting" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetSubAccountsHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfSubAccount" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsHttpPostIn">
+		<wsdl:part name="Token" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="GetPlatformSettingsHttpPostOut">
+		<wsdl:part name="Body" element="tns:BlotterOfPlatformSettings" />
+	</wsdl:message>
+	<wsdl:portType name="ConfigurationServiceSoap">
+		<wsdl:operation name="GetAccountTradeSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetAccountTradeSettingsSoapIn" />
+			<wsdl:output message="tns:GetAccountTradeSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Product
+				settings for a particular Product</wsdl:documentation>
+			<wsdl:input message="tns:GetProductSettingSoapIn" />
+			<wsdl:output message="tns:GetProductSettingSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetTimeZonesSoapIn" />
+			<wsdl:output message="tns:GetTimeZonesSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Configuration settings, platform logo, and resources
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetConfigurationSettingsSoapIn" />
+			<wsdl:output message="tns:GetConfigurationSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves User settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserSettingsSoapIn" />
+			<wsdl:output message="tns:SaveUserSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves User settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserSettingSoapIn" />
+			<wsdl:output message="tns:SaveUserSettingSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates User
+				Product Subscription Profile</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserProductSubscriptionSettingsSoapIn" />
+			<wsdl:output message="tns:SaveUserProductSubscriptionSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates User
+				Product Subscription Profile</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserProductSubscriptionSettingSoapIn" />
+			<wsdl:output message="tns:SaveUserProductSubscriptionSettingSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserQuickPairSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates Users Quick
+				Pairs Profile</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserQuickPairSettingSoapIn" />
+			<wsdl:output message="tns:SaveUserQuickPairSettingSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTradeSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates Users Trade
+				Settings</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserTradeSettingsSoapIn" />
+			<wsdl:output message="tns:SaveUserTradeSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates Users
+				TimeZone Settings</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserTimeZoneSettingsSoapIn" />
+			<wsdl:output message="tns:SaveUserTimeZoneSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Product
+				Settings</wsdl:documentation>
+			<wsdl:input message="tns:GetAnonymousProductSettingsSoapIn" />
+			<wsdl:output message="tns:GetAnonymousProductSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Sub
+				Accounts</wsdl:documentation>
+			<wsdl:input message="tns:GetSubAccountsSoapIn" />
+			<wsdl:output message="tns:GetSubAccountsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return Platform
+				settings</wsdl:documentation>
+			<wsdl:input message="tns:GetPlatformSettingsSoapIn" />
+			<wsdl:output message="tns:GetPlatformSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SavePlatformSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Saves Platform
+				settings</wsdl:documentation>
+			<wsdl:input message="tns:SavePlatformSettingsSoapIn" />
+			<wsdl:output message="tns:SavePlatformSettingsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserWatchList">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update Watchlist
+				for user</wsdl:documentation>
+			<wsdl:input message="tns:UpdateUserWatchListSoapIn" />
+			<wsdl:output message="tns:UpdateUserWatchListSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ConfigurationServiceHttpGet">
+		<wsdl:operation name="GetAccountTradeSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetAccountTradeSettingsHttpGetIn" />
+			<wsdl:output message="tns:GetAccountTradeSettingsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Product
+				settings for a particular Product</wsdl:documentation>
+			<wsdl:input message="tns:GetProductSettingHttpGetIn" />
+			<wsdl:output message="tns:GetProductSettingHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetTimeZonesHttpGetIn" />
+			<wsdl:output message="tns:GetTimeZonesHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Configuration settings, platform logo, and resources
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetConfigurationSettingsHttpGetIn" />
+			<wsdl:output message="tns:GetConfigurationSettingsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates Users
+				TimeZone Settings</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserTimeZoneSettingsHttpGetIn" />
+			<wsdl:output message="tns:SaveUserTimeZoneSettingsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Product
+				Settings</wsdl:documentation>
+			<wsdl:input message="tns:GetAnonymousProductSettingsHttpGetIn" />
+			<wsdl:output message="tns:GetAnonymousProductSettingsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Sub
+				Accounts</wsdl:documentation>
+			<wsdl:input message="tns:GetSubAccountsHttpGetIn" />
+			<wsdl:output message="tns:GetSubAccountsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return Platform
+				settings</wsdl:documentation>
+			<wsdl:input message="tns:GetPlatformSettingsHttpGetIn" />
+			<wsdl:output message="tns:GetPlatformSettingsHttpGetOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ConfigurationServiceHttpPost">
+		<wsdl:operation name="GetAccountTradeSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetAccountTradeSettingsHttpPostIn" />
+			<wsdl:output message="tns:GetAccountTradeSettingsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Product
+				settings for a particular Product</wsdl:documentation>
+			<wsdl:input message="tns:GetProductSettingHttpPostIn" />
+			<wsdl:output message="tns:GetProductSettingHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Account settings, list of Products and their related Trade Settings
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetTimeZonesHttpPostIn" />
+			<wsdl:output message="tns:GetTimeZonesHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Returns Configuration settings, platform logo, and resources
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetConfigurationSettingsHttpPostIn" />
+			<wsdl:output message="tns:GetConfigurationSettingsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates Users
+				TimeZone Settings</wsdl:documentation>
+			<wsdl:input message="tns:SaveUserTimeZoneSettingsHttpPostIn" />
+			<wsdl:output message="tns:SaveUserTimeZoneSettingsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Product
+				Settings</wsdl:documentation>
+			<wsdl:input message="tns:GetAnonymousProductSettingsHttpPostIn" />
+			<wsdl:output message="tns:GetAnonymousProductSettingsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all Sub
+				Accounts</wsdl:documentation>
+			<wsdl:input message="tns:GetSubAccountsHttpPostIn" />
+			<wsdl:output message="tns:GetSubAccountsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return Platform
+				settings</wsdl:documentation>
+			<wsdl:input message="tns:GetPlatformSettingsHttpPostIn" />
+			<wsdl:output message="tns:GetPlatformSettingsHttpPostOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ConfigurationServiceSoap" type="tns:ConfigurationServiceSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetAccountTradeSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/GetAccountTradeSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetAccountTradeSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/GetProductSetting"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetProductSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/GetTimeZones"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetTimeZonesAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/GetConfigurationSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetConfigurationSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSettings">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/SaveUserSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSetting">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/SaveUserSetting"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserProductSubscriptionSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserProductSubscriptionSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSetting">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserProductSubscriptionSetting"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserProductSubscriptionSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserQuickPairSetting">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserQuickPairSetting"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserQuickPairSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTradeSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserTradeSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserTradeSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserTimeZoneSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SaveUserTimeZoneSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/GetAnonymousProductSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetAnonymousProductSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/GetSubAccounts"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetSubAccountsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/GetPlatformSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetPlatformSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SavePlatformSettings">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/SavePlatformSettings"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SavePlatformSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserWatchList">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/UpdateUserWatchList"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:UpdateUserWatchListAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ConfigurationServiceSoap12" type="tns:ConfigurationServiceSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetAccountTradeSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/GetAccountTradeSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetAccountTradeSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/GetProductSetting"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetProductSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/GetTimeZones"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetTimeZonesAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/GetConfigurationSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetConfigurationSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSettings">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/SaveUserSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserSetting">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/SaveUserSetting"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserProductSubscriptionSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header
+					message="tns:SaveUserProductSubscriptionSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserProductSubscriptionSetting">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserProductSubscriptionSetting"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserProductSubscriptionSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserQuickPairSetting">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserQuickPairSetting"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserQuickPairSettingAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTradeSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserTradeSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserTradeSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SaveUserTimeZoneSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SaveUserTimeZoneSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/GetAnonymousProductSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetAnonymousProductSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/GetSubAccounts"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetSubAccountsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/GetPlatformSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetPlatformSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SavePlatformSettings">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/SavePlatformSettings"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SavePlatformSettingsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateUserWatchList">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/UpdateUserWatchList"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:UpdateUserWatchListAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ConfigurationServiceHttpGet" type="tns:ConfigurationServiceHttpGet">
+		<http:binding verb="GET" />
+		<wsdl:operation name="GetAccountTradeSettings">
+			<http:operation location="/GetAccountTradeSettings" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<http:operation location="/GetProductSetting" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<http:operation location="/GetTimeZones" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<http:operation location="/GetConfigurationSettings" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<http:operation location="/SaveUserTimeZoneSettings" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<http:operation location="/GetAnonymousProductSettings" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<http:operation location="/GetSubAccounts" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<http:operation location="/GetPlatformSettings" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ConfigurationServiceHttpPost" type="tns:ConfigurationServiceHttpPost">
+		<http:binding verb="POST" />
+		<wsdl:operation name="GetAccountTradeSettings">
+			<http:operation location="/GetAccountTradeSettings" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetProductSetting">
+			<http:operation location="/GetProductSetting" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetTimeZones">
+			<http:operation location="/GetTimeZones" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetConfigurationSettings">
+			<http:operation location="/GetConfigurationSettings" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SaveUserTimeZoneSettings">
+			<http:operation location="/SaveUserTimeZoneSettings" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetAnonymousProductSettings">
+			<http:operation location="/GetAnonymousProductSettings" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetSubAccounts">
+			<http:operation location="/GetSubAccounts" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetPlatformSettings">
+			<http:operation location="/GetPlatformSettings" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ConfigurationService">
+		<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+			Provides configuration parameters for various features to be made available
+			to the application
+		</wsdl:documentation>
+		<wsdl:port name="ConfigurationServiceSoap" binding="tns:ConfigurationServiceSoap">
+			<soap:address
+				location="http://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx" />
+		</wsdl:port>
+		<wsdl:port name="ConfigurationServiceSoap12" binding="tns:ConfigurationServiceSoap12">
+			<soap12:address
+				location="http://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx" />
+		</wsdl:port>
+		<wsdl:port name="ConfigurationServiceHttpGet" binding="tns:ConfigurationServiceHttpGet">
+			<http:address
+				location="http://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx" />
+		</wsdl:port>
+		<wsdl:port name="ConfigurationServiceHttpPost" binding="tns:ConfigurationServiceHttpPost">
+			<http:address
+				location="http://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

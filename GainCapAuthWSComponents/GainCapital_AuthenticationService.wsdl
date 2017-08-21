@@ -1,0 +1,1199 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.GainCapital.com.WebServices"
+	xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="www.GainCapital.com.WebServices">
+	<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		Authenticates the
+		User Credentials and returns an object containg the security
+		token and
+		Service url
+	</wsdl:documentation>
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified"
+			targetNamespace="www.GainCapital.com.WebServices">
+			<s:element name="AuthenticateCredentials">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="userID"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="password"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AuthenticateCredentialsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1"
+							name="AuthenticationResult" nillable="true" type="tns:AuthenticationResult" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AuthenticationResult">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CustomerName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="configurationService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="tradingService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="chartingService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="researchService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="profileService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="reportService"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsMETA"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="MetaServerName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MetaAccountNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="METAService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AlertService"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UniqueClientIdentifier" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="Authenticator" type="tns:Authenticator" />
+			<s:complexType name="Authenticator">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ApplicationName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="IPAddress"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MachineName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Language"
+						type="s:string" />
+				</s:sequence>
+				<s:anyAttribute />
+			</s:complexType>
+			<s:element name="AuthenticateCredentialsWithBrandCode">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="userID"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="password"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="brandCode"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AuthenticateCredentialsWithBrandCodeResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1"
+							name="AuthenticationResult" nillable="true" type="tns:AuthenticationResult" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AuthenticateLinkedAccount">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="token"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="AccountNumber"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AuthenticateLinkedAccountResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1"
+							name="AuthenticationResult" nillable="true" type="tns:AuthenticationResult" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetServerTime">
+				<s:complexType />
+			</s:element>
+			<s:element name="GetServerTimeResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GetServerTimeResult"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="SingleSignOn">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1"
+							name="AuthenticationRequest" nillable="true" type="tns:AuthenticationRequest" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AuthenticationRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="UserID"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Password"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BrandCode"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AccountNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TradingAccountID"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="FromApplication"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ToApplication"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="RequestType"
+						type="tns:LoginRequestType" />
+					<s:element minOccurs="0" maxOccurs="1" name="ThirdPartyToken"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="LoginRequestType">
+				<s:restriction base="s:string">
+					<s:enumeration value="SwitchAccount" />
+					<s:enumeration value="UserLogin" />
+					<s:enumeration value="SSOLogin" />
+					<s:enumeration value="SSOKey" />
+				</s:restriction>
+			</s:simpleType>
+			<s:element name="SingleSignOnResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1"
+							name="AuthenticationResponse" nillable="true"
+							type="tns:AuthenticationResponse" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AuthenticationResponse">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CustomerName"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="AccountType"
+						type="tns:AccountType" />
+					<s:element minOccurs="0" maxOccurs="unbounded" name="ServiceEndPoints"
+						type="tns:ServiceEndPoint" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UniqueClientIdentifier" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="SystemDetail"
+						type="tns:SystemDetails" />
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="AccountType">
+				<s:restriction base="s:string">
+					<s:enumeration value="Meta" />
+					<s:enumeration value="Prop" />
+					<s:enumeration value="Tradency" />
+					<s:enumeration value="SPEC" />
+					<s:enumeration value="OEC" />
+					<s:enumeration value="XCORE" />
+				</s:restriction>
+			</s:simpleType>
+			<s:complexType name="ServiceEndPoint">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="SystemDetails">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ServerName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AccountNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MetaAccountNumber"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AuthenticateWithDetails">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="userID"
+							type="s:string" />
+						<s:element minOccurs="0" maxOccurs="1" name="password"
+							type="s:string" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AuthenticateWithDetailsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1"
+							name="AuthenticateWithDetailsResult" type="tns:AuthenticationResult2" />
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="AuthenticationResult2">
+				<s:complexContent mixed="false">
+					<s:extension base="tns:AuthenticationResult">
+						<s:sequence>
+							<s:element minOccurs="0" maxOccurs="1" name="Settings"
+								type="tns:Settings" />
+							<s:element minOccurs="0" maxOccurs="1"
+								name="ConfigurationSettings" type="tns:ConfigurationSettings" />
+							<s:element minOccurs="0" maxOccurs="1" name="MarginBlotter"
+								type="tns:BlotterOfMargin" />
+							<s:element minOccurs="0" maxOccurs="1" name="PositionBlotter"
+								type="tns:BlotterOfPosition" />
+							<s:element minOccurs="0" maxOccurs="1" name="OrderBlotter"
+								type="tns:BlotterOfOrder" />
+							<s:element minOccurs="0" maxOccurs="1" name="TimeZoneBlotter"
+								type="tns:BlotterOfTimeZones" />
+							<s:element minOccurs="0" maxOccurs="1" name="ActivityBlotter"
+								type="tns:BlotterOfActivity" />
+						</s:sequence>
+					</s:extension>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="Settings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="AccountSettings"
+						type="tns:AccountSettings" />
+					<s:element minOccurs="0" maxOccurs="1" name="ProductSettings"
+						type="tns:ArrayOfProductSetting" />
+					<s:element minOccurs="0" maxOccurs="1" name="UserTimeZones"
+						type="tns:UserTimeZone" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="AccountSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="BasePair"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Features"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BlowoutLevel"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsNFARegulated"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsDealAtMarket"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsAgency"
+						type="s:boolean" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfProductSetting">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="ProductSetting"
+						nillable="true" type="tns:ProductSetting" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ProductSetting">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MarginFactor"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Notation"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CounterProduct"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ContractProduct"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TradeSize"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OrderSize"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DefaultTradeLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DefaultOrderLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxTradeLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxOrderLots"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CancelOrderPips"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxOrderPips"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="PipDifference"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Active"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Order" type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Subscribed"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="QuickPair"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxPosition"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DecimalPlaces"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AliasName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Description"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BoldIndex"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="SuperScriptIndex"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ContractExpiryDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="DailyClosureExpiryTimeDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UnitsPerLotDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="MinimumTickDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OrderPipsAway"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="Type"
+						type="tns:udProductType" />
+					<s:element minOccurs="1" maxOccurs="1" name="ProductGroup"
+						type="tns:udProductType" />
+					<s:element minOccurs="0" maxOccurs="1" name="MinimumTolerance"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Tolerance"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsOnWatchList"
+						type="s:boolean" />
+					<s:element minOccurs="1" maxOccurs="1" name="IsPopularMarket"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="PopularMarketOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="WatchlistSortOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DealBoxSortOrder"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MinimumTickValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="UnderlyingExchange"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="ContactValueDescription" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TickValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ProductDisplayTree"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TradingHours"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ExpirationDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="UnderlyingExchangeMonth" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ExpirationDateTime"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:simpleType name="udProductType">
+				<s:restriction base="s:string">
+					<s:enumeration value="CURRENCY" />
+					<s:enumeration value="CFD" />
+					<s:enumeration value="METALS" />
+					<s:enumeration value="OIL" />
+					<s:enumeration value="OTHERS" />
+				</s:restriction>
+			</s:simpleType>
+			<s:complexType name="UserTimeZone">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="UserTimeZoneID"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TimeZoneName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TimeZoneStandardName"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1"
+						name="IsSupportDayLightSaving" type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="DayLightName"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="EasternToCustomerTimeZoneOffsetInMinutes" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1"
+						name="CustomerToGMTTimeZoneOffsetInMinutes" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TimeZones">
+				<s:complexContent mixed="false">
+					<s:extension base="tns:UserTimeZone">
+						<s:sequence>
+							<s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+							<s:element minOccurs="0" maxOccurs="1" name="TimeZoneID"
+								type="s:string" />
+						</s:sequence>
+					</s:extension>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="ConfigurationSettings">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="PlatformImage"
+						type="s:base64Binary" />
+					<s:element minOccurs="0" maxOccurs="1" name="ColorStyle"
+						type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="ChartColorSet"
+						type="s:int" />
+					<s:element minOccurs="0" maxOccurs="1" name="RatesConnection"
+						type="tns:ArrayOfConnection" />
+					<s:element minOccurs="0" maxOccurs="1" name="Services"
+						type="tns:ArrayOfService" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="message"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfConnection">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Connection"
+						nillable="true" type="tns:Connection" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Connection">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Port" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfService">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Service"
+						nillable="true" type="tns:Service" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Service">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="RefreshInterval"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Enabled"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Visible"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="BlotterOfMargin">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfMargin" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfMargin">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Margin"
+						nillable="true" type="tns:Margin" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Margin">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="PostedMargin"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="USDPostedMargin"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="RealizedProfit"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="USDRealizedProfit"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="UnrealizedProfit"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MarginBalance"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MarginFactor"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AvailablePosition"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OpenPosition"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="MaxDealAvailable"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="BlotterOfPosition">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfPosition" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfPosition">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Position"
+						nillable="true" type="tns:Position" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Position">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Contract"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Unrealized"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="USDValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="CurrencyValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="AverageRate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BaseCurrencyValue"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="LimitRate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="StopRate"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="BlotterOfOrder">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfOrder" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfOrder">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Order"
+						nillable="true" type="tns:Order" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Order">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BuySell"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Contract"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="OrderDate"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ConfirmationNumber"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Basis" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Expiry"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Status"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ASSP" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="TrailingPoints"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="DealReference"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="BlotterOfTimeZones">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfTimeZones" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfTimeZones">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="TimeZones"
+						nillable="true" type="tns:TimeZones" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="BlotterOfActivity">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Output"
+						type="tns:ArrayOfActivity" />
+					<s:element minOccurs="1" maxOccurs="1" name="Success"
+						type="s:boolean" />
+					<s:element minOccurs="0" maxOccurs="1" name="Message"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="ErrorNo"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfActivity">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="Activity"
+						nillable="true" type="tns:Activity" />
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Activity">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Product"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Amount"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="BuySell"
+						type="s:string" />
+					<s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:string" />
+					<s:element minOccurs="1" maxOccurs="1" name="ActivityDate"
+						type="s:dateTime" />
+					<s:element minOccurs="0" maxOccurs="1" name="ActivityID"
+						type="s:string" />
+				</s:sequence>
+			</s:complexType>
+			<s:element name="AuthenticationResult" nillable="true"
+				type="tns:AuthenticationResult" />
+			<s:element name="string" nillable="true" type="s:string" />
+			<s:element name="AuthenticationResult2" nillable="true"
+				type="tns:AuthenticationResult2" />
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="AuthenticateCredentialsSoapIn">
+		<wsdl:part name="parameters" element="tns:AuthenticateCredentials" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsSoapOut">
+		<wsdl:part name="parameters" element="tns:AuthenticateCredentialsResponse" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeSoapIn">
+		<wsdl:part name="parameters" element="tns:AuthenticateCredentialsWithBrandCode" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeSoapOut">
+		<wsdl:part name="parameters"
+			element="tns:AuthenticateCredentialsWithBrandCodeResponse" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountSoapIn">
+		<wsdl:part name="parameters" element="tns:AuthenticateLinkedAccount" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountSoapOut">
+		<wsdl:part name="parameters" element="tns:AuthenticateLinkedAccountResponse" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="GetServerTimeSoapIn">
+		<wsdl:part name="parameters" element="tns:GetServerTime" />
+	</wsdl:message>
+	<wsdl:message name="GetServerTimeSoapOut">
+		<wsdl:part name="parameters" element="tns:GetServerTimeResponse" />
+	</wsdl:message>
+	<wsdl:message name="GetServerTimeAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="SingleSignOnSoapIn">
+		<wsdl:part name="parameters" element="tns:SingleSignOn" />
+	</wsdl:message>
+	<wsdl:message name="SingleSignOnSoapOut">
+		<wsdl:part name="parameters" element="tns:SingleSignOnResponse" />
+	</wsdl:message>
+	<wsdl:message name="SingleSignOnAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsSoapIn">
+		<wsdl:part name="parameters" element="tns:AuthenticateWithDetails" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsSoapOut">
+		<wsdl:part name="parameters" element="tns:AuthenticateWithDetailsResponse" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsAuthenticator">
+		<wsdl:part name="Authenticator" element="tns:Authenticator" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsHttpGetIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsHttpGetOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeHttpGetIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+		<wsdl:part name="brandCode" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeHttpGetOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountHttpGetIn">
+		<wsdl:part name="token" type="s:string" />
+		<wsdl:part name="AccountNumber" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountHttpGetOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="GetServerTimeHttpGetIn" />
+	<wsdl:message name="GetServerTimeHttpGetOut">
+		<wsdl:part name="Body" element="tns:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsHttpGetIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsHttpGetOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult2" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsHttpPostIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsHttpPostOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeHttpPostIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+		<wsdl:part name="brandCode" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateCredentialsWithBrandCodeHttpPostOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountHttpPostIn">
+		<wsdl:part name="token" type="s:string" />
+		<wsdl:part name="AccountNumber" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateLinkedAccountHttpPostOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult" />
+	</wsdl:message>
+	<wsdl:message name="GetServerTimeHttpPostIn" />
+	<wsdl:message name="GetServerTimeHttpPostOut">
+		<wsdl:part name="Body" element="tns:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsHttpPostIn">
+		<wsdl:part name="userID" type="s:string" />
+		<wsdl:part name="password" type="s:string" />
+	</wsdl:message>
+	<wsdl:message name="AuthenticateWithDetailsHttpPostOut">
+		<wsdl:part name="Body" element="tns:AuthenticationResult2" />
+	</wsdl:message>
+	<wsdl:portType name="AuthenticationServiceSoap">
+		<wsdl:operation name="AuthenticateCredentials">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsSoapIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsWithBrandCodeSoapIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsWithBrandCodeSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Linked Account
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateLinkedAccountSoapIn" />
+			<wsdl:output message="tns:AuthenticateLinkedAccountSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Server Date
+				Time
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetServerTimeSoapIn" />
+			<wsdl:output message="tns:GetServerTimeSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="SingleSignOn">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Single Sign On
+				between Different Systems
+			</wsdl:documentation>
+			<wsdl:input message="tns:SingleSignOnSoapIn" />
+			<wsdl:output message="tns:SingleSignOnSoapOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Authenticate along
+				with other details being returned.
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateWithDetailsSoapIn" />
+			<wsdl:output message="tns:AuthenticateWithDetailsSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="AuthenticationServiceHttpGet">
+		<wsdl:operation name="AuthenticateCredentials">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsHttpGetIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsWithBrandCodeHttpGetIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsWithBrandCodeHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Linked Account
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateLinkedAccountHttpGetIn" />
+			<wsdl:output message="tns:AuthenticateLinkedAccountHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Server Date
+				Time
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetServerTimeHttpGetIn" />
+			<wsdl:output message="tns:GetServerTimeHttpGetOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Authenticate along
+				with other details being returned.
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateWithDetailsHttpGetIn" />
+			<wsdl:output message="tns:AuthenticateWithDetailsHttpGetOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="AuthenticationServiceHttpPost">
+		<wsdl:operation name="AuthenticateCredentials">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsHttpPostIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Account credentials
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateCredentialsWithBrandCodeHttpPostIn" />
+			<wsdl:output message="tns:AuthenticateCredentialsWithBrandCodeHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Authenticates the
+				Linked Account
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateLinkedAccountHttpPostIn" />
+			<wsdl:output message="tns:AuthenticateLinkedAccountHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Server Date
+				Time
+			</wsdl:documentation>
+			<wsdl:input message="tns:GetServerTimeHttpPostIn" />
+			<wsdl:output message="tns:GetServerTimeHttpPostOut" />
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+				Authenticate along
+				with other details being returned.
+			</wsdl:documentation>
+			<wsdl:input message="tns:AuthenticateWithDetailsHttpPostIn" />
+			<wsdl:output message="tns:AuthenticateWithDetailsHttpPostOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="AuthenticationServiceSoap" type="tns:AuthenticationServiceSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="AuthenticateCredentials">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateCredentials"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:AuthenticateCredentialsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateCredentialsWithBrandCode"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:AuthenticateCredentialsWithBrandCodeAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateLinkedAccount"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:AuthenticateLinkedAccountAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/GetServerTime"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:GetServerTimeAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SingleSignOn">
+			<soap:operation soapAction="www.GainCapital.com.WebServices/SingleSignOn"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:SingleSignOnAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<soap:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateWithDetails"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header message="tns:AuthenticateWithDetailsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AuthenticationServiceSoap12" type="tns:AuthenticationServiceSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="AuthenticateCredentials">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateCredentials"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:AuthenticateCredentialsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateCredentialsWithBrandCode"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header
+					message="tns:AuthenticateCredentialsWithBrandCodeAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateLinkedAccount"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:AuthenticateLinkedAccountAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/GetServerTime"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:GetServerTimeAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="SingleSignOn">
+			<soap12:operation soapAction="www.GainCapital.com.WebServices/SingleSignOn"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:SingleSignOnAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<soap12:operation
+				soapAction="www.GainCapital.com.WebServices/AuthenticateWithDetails"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+				<soap12:header message="tns:AuthenticateWithDetailsAuthenticator"
+					part="Authenticator" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AuthenticationServiceHttpGet" type="tns:AuthenticationServiceHttpGet">
+		<http:binding verb="GET" />
+		<wsdl:operation name="AuthenticateCredentials">
+			<http:operation location="/AuthenticateCredentials" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<http:operation location="/AuthenticateCredentialsWithBrandCode" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<http:operation location="/AuthenticateLinkedAccount" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<http:operation location="/GetServerTime" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<http:operation location="/AuthenticateWithDetails" />
+			<wsdl:input>
+				<http:urlEncoded />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AuthenticationServiceHttpPost" type="tns:AuthenticationServiceHttpPost">
+		<http:binding verb="POST" />
+		<wsdl:operation name="AuthenticateCredentials">
+			<http:operation location="/AuthenticateCredentials" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateCredentialsWithBrandCode">
+			<http:operation location="/AuthenticateCredentialsWithBrandCode" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateLinkedAccount">
+			<http:operation location="/AuthenticateLinkedAccount" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetServerTime">
+			<http:operation location="/GetServerTime" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AuthenticateWithDetails">
+			<http:operation location="/AuthenticateWithDetails" />
+			<wsdl:input>
+				<mime:content type="application/x-www-form-urlencoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AuthenticationService">
+		<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+			Authenticates the
+			User Credentials and returns an object containg the security
+			token and
+			Service url
+		</wsdl:documentation>
+		<wsdl:port name="AuthenticationServiceSoap" binding="tns:AuthenticationServiceSoap">
+			<soap:address
+				location="http://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx" />
+		</wsdl:port>
+		<wsdl:port name="AuthenticationServiceSoap12" binding="tns:AuthenticationServiceSoap12">
+			<soap12:address
+				location="http://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx" />
+		</wsdl:port>
+		<wsdl:port name="AuthenticationServiceHttpGet" binding="tns:AuthenticationServiceHttpGet">
+			<http:address
+				location="http://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx" />
+		</wsdl:port>
+		<wsdl:port name="AuthenticationServiceHttpPost" binding="tns:AuthenticationServiceHttpPost">
+			<http:address
+				location="http://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
